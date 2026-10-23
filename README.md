@@ -188,7 +188,99 @@ npm run dev
 
 Mở địa chỉ Vite hiển thị trong terminal, thường là `http://localhost:5173`.
 
-## 6. Deploy lên GitHub Pages bằng gh-pages
+## 6. Đưa dự án lên GitHub
+
+### Bước 1: Tạo repository trên GitHub
+
+1. Truy cập [https://github.com/new](https://github.com/new).
+2. Nhập tên repository: `f8-zoom-day40`.
+3. Chọn **Public** để mọi người có thể truy cập repository.
+4. Không tích chọn tạo sẵn README, `.gitignore` hoặc License nếu dự án đã có các file này ở máy.
+5. Nhấn **Create repository**.
+
+### Bước 2: Mở terminal tại thư mục dự án
+
+Mở terminal trong VS Code tại thư mục `f8-zoom-day40`:
+
+```bash
+cd F:/WORKSPACE/reacjs/BTVN/f8-zoom-day40
+```
+
+Kiểm tra thư mục đã được khởi tạo Git chưa:
+
+```bash
+git status
+```
+
+Nếu terminal báo chưa phải Git repository, chạy:
+
+```bash
+git init
+```
+
+### Bước 3: Commit code nguồn
+
+Thêm các file vào vùng staging:
+
+```bash
+git add .
+```
+
+Tạo commit:
+
+```bash
+git commit -m "feat: complete day 40"
+```
+
+Nếu Git yêu cầu cấu hình tên và email, thiết lập thông tin cá nhân đã đăng ký với Git:
+
+```bash
+git config --global user.name "Tên của bạn"
+git config --global user.email "email@example.com"
+```
+
+Sau đó chạy lại lệnh commit.
+
+### Bước 4: Kết nối với repository GitHub
+
+Đổi URL bên dưới thành URL repository của bạn nếu tên repository khác:
+
+```bash
+git branch -M main
+git remote add origin https://github.com/hungomega/f8-zoom-day40.git
+```
+
+Nếu dự án đã có remote `origin`, không thêm lại; kiểm tra bằng:
+
+```bash
+git remote -v
+```
+
+Nếu remote đang trỏ sai repository, cập nhật bằng:
+
+```bash
+git remote set-url origin https://github.com/hungomega/f8-zoom-day40.git
+```
+
+### Bước 5: Push code lên GitHub
+
+```bash
+git push -u origin main
+```
+
+Sau khi hoàn thành, mở repository trên GitHub để kiểm tra các file đã được tải lên.
+
+**Lưu ý:** Các lần cập nhật code tiếp theo thường chỉ cần:
+
+```bash
+git add .
+git commit -m "mô tả thay đổi"
+git push
+```
+
+Không đưa `node_modules/`, thư mục `dist/` hoặc các file chứa thông tin bí mật như API key vào repository nguồn.
+
+## 7. Deploy lên GitHub Pages bằng gh-pages
 
 ### Bước 1: Cài gh-pages
 
@@ -293,7 +385,7 @@ https://hungomega.github.io/f8-zoom-day40/redux.html
 
 Nếu vừa deploy xong mà chưa thấy thay đổi, hãy đợi GitHub Pages cập nhật rồi nhấn `Ctrl + F5`.
 
-## 7. Lưu ý khi deploy
+## 8. Lưu ý khi deploy
 
 - Các file trong `public/` được Vite sao chép vào thư mục `dist/` khi build.
 - Đường dẫn đến tài nguyên cần tương thích với `base` đã cấu hình.
@@ -301,7 +393,7 @@ Nếu vừa deploy xong mà chưa thấy thay đổi, hãy đợi GitHub Pages c
 - GitHub Pages chỉ host frontend. API `http://localhost:3000/tasks` chỉ hoạt động trên máy đang chạy JSON Server; muốn CRUD hoạt động công khai, cần deploy API lên máy chủ riêng và cập nhật URL API.
 - Không cần đưa `node_modules/` hoặc thư mục `dist/` vào Git repository nguồn.
 
-## 8. Mục tiêu học tập
+## 9. Mục tiêu học tập
 
 - Hiểu cơ chế hoạt động của Redux Store.
 - Hiểu cách `dispatch`, reducer và `subscribe` phối hợp.
