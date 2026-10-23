@@ -1,0 +1,17 @@
+{
+  "tasks": [
+    {
+      "title": "Học reactJS cùng mình",
+      "id": "_AGiMig46NQ"
+    },
+    {
+      "title": "Hùng  bị  lười chỉ  thích  xem  tutorial hell",
+      "id": "SwwdXgbTd8s"
+    },
+    {
+      "title": "Hùng  bị lười",
+      "id": "wdr0iet87FM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
