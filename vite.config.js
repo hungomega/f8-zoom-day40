@@ -4,6 +4,7 @@ import path from "path";
 
 export default defineConfig({
     plugins: [react()],
+    base: "/f8-zoom-day40/",
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"),
