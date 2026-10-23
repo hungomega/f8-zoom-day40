@@ -1,7 +1,7 @@
 {
   "tasks": [
     {
-      "title": "Học reactJS cùng mình",
+      "title": "Học reactJS cùng mình  nhé",
       "id": "_AGiMig46NQ"
     },
     {
@@ -11,6 +11,14 @@
     {
       "title": "Hùng  bị lười",
       "id": "wdr0iet87FM"
+    },
+    {
+      "title": "Lười",
+      "id": "gnABUFkZ52s"
+    },
+    {
+      "title": "chán",
+      "id": "LwKMRodW0JI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

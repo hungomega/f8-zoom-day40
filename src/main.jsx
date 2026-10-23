@@ -6,7 +6,7 @@ import store from "@/store";
 import { BrowserRouter } from "react-router";
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/f8-zoom-day40"> 
             <ReduxProvider store={store}>
                 <App />
             </ReduxProvider>

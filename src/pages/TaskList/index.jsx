@@ -50,7 +50,7 @@ function TaskList() {
     return (
         <div className={styles.container}>
             <h1>Task List</h1>
-            <a href="../../../public/redux.html">Page Redux</a>
+            <a href={`${import.meta.env.BASE_URL}redux.html`}>Page Redux</a>
             {loading && <p>Đang tải...</p>}
 
             <button onClick={() => navigate("/new-task")}>
