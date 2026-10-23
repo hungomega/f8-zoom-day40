@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <style>
+        body {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1 {
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin: 25px 0;
+            font-size: 48px;
+            color: #2563eb;
+        }
+
+        button {
+            margin: 6px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        #remove-listener {
+            background: #fff;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        #remove-listener:hover {
+            background: #dbeafe;
+        }
+    </style>
+    <body>
+        <h1>Page redux</h1>
+        <h2 id="counter-value">0</h2>
+        <button id="increase">Increase</button>
+        <button id="decrease">Decrease</button>
+        <button id="reset">Reset</button>
+        <button id="remove-listener">Remove-listener</button>
+    </body>
+    <script type="module">
+        import createStore from "./redux.js";
+        //1 const initState = 0 ;
+        const initState = 0;
+        //2 Tạo reducer
+        function reducer(state, action) {
+            console.log(action);
+            // xử lý trả state mới
+            switch (action.type) {
+                case "increase":
+                    return state + 1;
+                case "decrease":
+                    return state - 1;
+                case "reset":
+                    return 0;
+                default:
+                    return state;
+            }
+        }
+        //3, Tạo store
+        const store = createStore(reducer, initState);
+        store.subscribe(() => {
+            console.log(store.getState()); // đăng ký hàm log
+        });
+
+        const $ = document.querySelector.bind(document);
+        const counterValue = $("#counter-value");
+        const increase = $("#increase");
+        const decrease = $("#decrease");
+        const reset = $("#reset");
+        const removeListener = $("#remove-listener");
+
+        function render() {
+            counterValue.textContent = store.getState(); // lấy state hiện tại
+        }
+        render();
+
+        const unsubscribe = store.subscribe(render); // đăng ký hàm render  giao diện
+        // Event Handler  (xử lý khi click)
+
+        increase.addEventListener("click", () => {
+            store.dispatch({
+                type: "increase", // trả ra action type
+            });
+        });
+        decrease.addEventListener("click", () => {
+            store.dispatch({
+                type: "decrease", // trả ra action type
+            });
+        });
+        reset.addEventListener("click", () => {
+            store.dispatch({
+                type: "reset", // trả ra action type
+            });
+        });
+        removeListener.addEventListener("click", () => {
+            unsubscribe(); // huỷ render giao  diện
+        });
+    </script>
+</html>
