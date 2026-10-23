@@ -188,98 +188,49 @@ npm run dev
 
 Mở địa chỉ Vite hiển thị trong terminal, thường là `http://localhost:5173`.
 
-## 6. Đưa dự án lên GitHub
+### 6. Đưa dự án lên GitHub
 
-### Bước 1: Tạo repository trên GitHub
+**Bước 1: Tạo repository**
 
-1. Truy cập [https://github.com/new](https://github.com/new).
-2. Nhập tên repository: `f8-zoom-day40`.
-3. Chọn **Public** để mọi người có thể truy cập repository.
-4. Không tích chọn tạo sẵn README, `.gitignore` hoặc License nếu dự án đã có các file này ở máy.
-5. Nhấn **Create repository**.
+Truy cập https://github.com/new → đặt tên repository → chọn Public → Create repository.
 
-### Bước 2: Mở terminal tại thư mục dự án
-
-Mở terminal trong VS Code tại thư mục `f8-zoom-day40`:
+**Bước 2: Mở terminal tại thư mục dự án**
 
 ```bash
 cd F:/WORKSPACE/reacjs/BTVN/f8-zoom-day40
 ```
 
-Kiểm tra thư mục đã được khởi tạo Git chưa:
-
-```bash
-git status
-```
-
-Nếu terminal báo chưa phải Git repository, chạy:
+**Bước 3: Khởi tạo Git và commit code**
 
 ```bash
 git init
-```
-
-### Bước 3: Commit code nguồn
-
-Thêm các file vào vùng staging:
-
-```bash
 git add .
-```
-
-Tạo commit:
-
-```bash
 git commit -m "feat: complete day 40"
-```
-
-Nếu Git yêu cầu cấu hình tên và email, thiết lập thông tin cá nhân đã đăng ký với Git:
-
-```bash
-git config --global user.name "Tên của bạn"
-git config --global user.email "email@example.com"
-```
-
-Sau đó chạy lại lệnh commit.
-
-### Bước 4: Kết nối với repository GitHub
-
-Đổi URL bên dưới thành URL repository của bạn nếu tên repository khác:
-
-```bash
 git branch -M main
-git remote add origin https://github.com/hungomega/f8-zoom-day40.git
 ```
 
-Nếu dự án đã có remote `origin`, không thêm lại; kiểm tra bằng:
+**Bước 4: Kết nối repository và push code**
 
 ```bash
-git remote -v
+git remote add origin https://github.com/hungomega/f8-zoom-day40.git
+git push -u origin main
 ```
 
-Nếu remote đang trỏ sai repository, cập nhật bằng:
+Nếu đã có `origin`, kiểm tra bằng `git remote -v`; nếu URL sai, sửa bằng:
 
 ```bash
 git remote set-url origin https://github.com/hungomega/f8-zoom-day40.git
 ```
 
-### Bước 5: Push code lên GitHub
+**Lưu ý:** Nếu dự án đã được khởi tạo Git hoặc đã có commit, bỏ qua các lệnh tương ứng để tránh làm lại không cần thiết.
 
-```bash
-git push -u origin main
-```
-
-Sau khi hoàn thành, mở repository trên GitHub để kiểm tra các file đã được tải lên.
-
-**Lưu ý:** Các lần cập nhật code tiếp theo thường chỉ cần:
+**Các lần cập nhật tiếp theo:**
 
 ```bash
 git add .
 git commit -m "mô tả thay đổi"
 git push
 ```
-
-Không đưa `node_modules/`, thư mục `dist/` hoặc các file chứa thông tin bí mật như API key vào repository nguồn.
-
 ## 7. Deploy lên GitHub Pages bằng gh-pages
 
 ### Bước 1: Cài gh-pages
